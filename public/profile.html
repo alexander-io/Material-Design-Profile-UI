@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/material-components-web.css">
+    <script type="text/javascript" src="/material-components-web.min.js">
+
+    </script>
+    <title></title>
+  </head>
+  <body>
+
+    <div class="mdc-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell--span-4"></div>
+        <div class="mdc-layout-grid__cell--span-4 profile-photo-container">
+          <div class="profile-photo-wrapper">
+            <!-- <img class="profile-photo" src="https://wallpaperaccess.com/full/170249.jpg" alt=""> --> <!-- this is a landscape photo -->
+            <img class="profile-photo" src="https://images.unsplash.com/photo-1527082395-e939b847da0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt=""> <!-- this is a portrait photo -->
+
+
+          </div>
+        </div>
+        <div class="mdc-layout-grid__cell--span-4"></div>
+      </div>
+    </div>
+
+  </body>
+
+  <style media="screen">
+    .profile-photo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+    .profile-photo-wrapper {
+      /* align-self:center; */
+      /* justify-content: center; */
+      width: 50%;
+      border-radius: 50%;
+      background-color: #212121;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden
+    }
+
+    .profile-photo {
+      flex-shrink: 0;
+    }
+
+  </style>
+  <script type="text/javascript">
+    let profile_photo_wrapper = document.getElementsByClassName('profile-photo-wrapper')
+    let profile_photo_wrapper_width = profile_photo_wrapper[0].clientWidth
+    // console.log(profile_photo_wrapper[0].clientWidth)
+    profile_photo_wrapper[0].style.height = profile_photo_wrapper_width + 'px'
+
+
+    let profile_photo = document.getElementsByClassName('profile-photo')
+    let profile_photo_width = profile_photo[0].clientWidth
+    let profile_photo_height =  profile_photo[0].clientHeight
+
+    console.log(profile_photo_width, profile_photo_height)
+    if (profile_photo_width > profile_photo_height) {
+      // photo is landscape
+      profile_photo[0].style.maxHeight = '100%'
+    } else if (profile_photo_width < profile_photo_height) {
+      // photo is portrait
+      profile_photo[0].style.maxWidth = '100%'
+    } else if (profile_photo_width === profile_photo_height) {
+      // photo is square
+      profile_photo[0].style.height = '100%'
+      profile_photo[0].style.width = '100%'
+    }
+
+  </script>
+
+
+</html>
