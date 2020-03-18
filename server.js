@@ -14,6 +14,10 @@ app.get('/material-components-web.min.js', (req, res) => {
   res.sendFile(__dirname + '/node_modules/material-components-web/dist/material-components-web.min.js')
 })
 
+app.get('/crown.png', (req, res) => {
+  res.sendFile(__dirname + '/images/crown.png')
+})
+
 app.listen(8080, () => {
   console.log('listening on ' + port)
 })
