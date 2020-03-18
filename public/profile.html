@@ -12,43 +12,178 @@
 
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell--span-4"></div>
+
+
         <div class="mdc-layout-grid__cell--span-4 profile-photo-container">
           <div class="profile-photo-wrapper">
             <!-- <img class="profile-photo" src="https://wallpaperaccess.com/full/170249.jpg" alt=""> --> <!-- this is a landscape photo -->
             <img class="profile-photo" src="https://images.unsplash.com/photo-1527082395-e939b847da0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt=""> <!-- this is a portrait photo -->
+          </div> <!-- end profile photo wrapper -->
+
+          <!-- xp -->
+          <div class="xp-container">
+            <div class="xp-bar mdc-elevation--z8">
+              <div class="xp" style=""></div>
+            </div>
+            <div class="xp-indicator">
+              <span></span>
+            </div>
+          </div> <!-- end xp container -->
+        </div> <!-- end cell -->
+
+        <div class="mdc-layout-grid__cell--span-4"></div>
+
+        <div class="mdc-layout-grid__cell--span-4"></div>
+
+
+
+
+        <!-- <div class="mdc-layout-grid__cell--span-12 achievement-container"></div>
+        <div class="mdc-layout-grid__cell--span-12 workout-container"></div>
+        <div class="mdc-layout-grid__cell--span-12 pr-container"></div> -->
+
+
+
+
+      </div>
+
+
+      <div class="scrolling-wrapper-flexbox achievement-container">
+        <div class="card">
+
+
+          <div class="mdc-card">
+            <div class="mdc-card__primary-action">
+              <div class="mdc-card__media" style="background-image: url(&quot;https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg&quot;);"></div>
+
+            </div>
 
 
           </div>
+
+
+
+
         </div>
-        <div class="mdc-layout-grid__cell--span-4"></div>
+        <div class="card"><h2>Achievement</h2></div>
+        <div class="card"><h2>Achievement</h2></div>
+        <div class="card"><h2>Achievement</h2></div>
+        <div class="card"><h2>Achievement</h2></div>
+        <div class="card"><h2>Achievement</h2></div>
+        <div class="card"><h2>Achievement</h2></div>
+        <div class="card"><h2>Achievement</h2></div>
+        <div class="card"><h2>Achievement</h2></div>
       </div>
+      <div class="scrolling-wrapper-flexbox workout-container">
+        <div class="card"><h2>Workout</h2></div>
+        <div class="card"><h2>Workout</h2></div>
+        <div class="card"><h2>Workout</h2></div>
+        <div class="card"><h2>Workout</h2></div>
+        <div class="card"><h2>Workout</h2></div>
+        <div class="card"><h2>Workout</h2></div>
+        <div class="card"><h2>Workout</h2></div>
+        <div class="card"><h2>Workout</h2></div>
+        <div class="card"><h2>Workout</h2></div>
+      </div>
+      <div class="scrolling-wrapper-flexbox pr-container">
+        <div class="card"><h2>PR</h2></div>
+        <div class="card"><h2>PR</h2></div>
+        <div class="card"><h2>PR</h2></div>
+        <div class="card"><h2>PR</h2></div>
+        <div class="card"><h2>PR</h2></div>
+        <div class="card"><h2>PR</h2></div>
+        <div class="card"><h2>PR</h2></div>
+        <div class="card"><h2>PR</h2></div>
+        <div class="card"><h2>PR</h2></div>
+      </div>
+
+
     </div>
+
+
 
   </body>
 
   <style media="screen">
+    .mdc-layout-grid {
+      padding-bottom: 0px;
+    }
     .profile-photo-container {
       display: flex;
       align-items: center;
       justify-content: center;
-
+      flex-direction: column;
     }
     .profile-photo-wrapper {
-      /* align-self:center; */
-      /* justify-content: center; */
       width: 50%;
       border-radius: 50%;
       background-color: #212121;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden
+      overflow: hidden;
     }
 
     .profile-photo {
       flex-shrink: 0;
     }
+
+    .xp-container {
+      z-index: 1;
+      height:50px;
+      width:100%;
+      display: flex;
+      flex-direction: column-reverse;
+      padding-bottom:24px;
+    }
+    .xp-bar {
+      background-color: white;
+      height:35%;
+      border-radius: 5px;
+      border: 4px solid black;
+    }
+    .xp {
+        height:100%;
+        width:75%;
+        background-color: lime;
+    }
+
+    .scrolling-wrapper-flexbox {
+      /* width: 100%; */
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+
+      }
+
+
+      .card {
+        /* height:100px; */
+        background-color: #212121;
+        color: white;
+        flex: 0 0 auto;
+        width:300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mdc-card {
+        height:100%;
+        width: 100%;
+      }
+
+      .mdc-card__primary-action {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+      }
+      .mdc-card__media {
+        width:50%;
+        height: 100%;
+      }
 
   </style>
   <script type="text/javascript">
@@ -58,22 +193,106 @@
     profile_photo_wrapper[0].style.height = profile_photo_wrapper_width + 'px'
 
 
+    // adjust profile photo height/width so to fit image within circular div
     let profile_photo = document.getElementsByClassName('profile-photo')
     let profile_photo_width = profile_photo[0].clientWidth
     let profile_photo_height =  profile_photo[0].clientHeight
 
-    console.log(profile_photo_width, profile_photo_height)
-    if (profile_photo_width > profile_photo_height) {
-      // photo is landscape
-      profile_photo[0].style.maxHeight = '100%'
-    } else if (profile_photo_width < profile_photo_height) {
-      // photo is portrait
-      profile_photo[0].style.maxWidth = '100%'
-    } else if (profile_photo_width === profile_photo_height) {
-      // photo is square
-      profile_photo[0].style.height = '100%'
-      profile_photo[0].style.width = '100%'
+    let adjust_profile_img_size = (width, height, img_element) => {
+      console.log(width,height)
+      if (width > height) {
+        // photo is landscape
+        img_element.style.maxHeight = '100%'
+      } else if (width < height) {
+        // photo is portrait
+        console.log('photo is portrait')
+        img_element.style.maxWidth = '100%'
+      } else if (width === height) {
+        // photo is square
+        img_element.style.height = '100%'
+        img_element.style.width = '100%'
+      }
     }
+
+    if (profile_photo_width !== 0 && profile_photo_height !== 0) {
+      adjust_profile_img_size(profile_photo_width, profile_photo_height, profile_photo[0])
+    }
+
+    profile_photo[0].onload = function() {
+      console.log('onload')
+      let profile_photo_width = this.width
+      let profile_photo_height =  this.height
+      adjust_profile_img_size(profile_photo_width, profile_photo_height, profile_photo[0])
+    }
+
+
+
+    // we want the height of the achievement_container, workout_container, and pr_container
+    // ... to be 1/3 of the remaining window height after taking the difference of the total
+    // ... window height and the height of the profile-photo-container...
+    // also need to take into account the gutter height... do that
+    // let achievement_container = document.getElementsByClassName('achievement-container')
+    // , workout_container = document.getElementsByClassName('workout-container')
+    // , pr_container = document.getElementsByClassName('pr-container')
+    let profile_photo_container = document.getElementsByClassName('profile-photo-container')
+    , xp_container = document.getElementsByClassName('xp-container')
+    , scrolling_wrapper_flexbox = document.getElementsByClassName('scrolling-wrapper-flexbox')
+    let difference_height = window.innerHeight - (profile_photo_container[0].clientHeight + xp_container[0].clientHeight)
+
+    for (let i = 0; i < scrolling_wrapper_flexbox.length; i++) {
+      // console.log((difference_height * (1/3)) + 'px')
+      scrolling_wrapper_flexbox[i].style.height = ((difference_height * (1/3))-12) + 'px'
+      scrolling_wrapper_flexbox[i].style.marginBottom = '24px'
+    }
+
+
+    let cards = document.getElementsByClassName('card')
+    for (card in cards) {
+      if (cards[card].style) {
+        cards[card].style.width = scrolling_wrapper_flexbox[0].clientWidth/4 + 'px'
+      }
+    }
+
+    //
+    // achievement_container[0].style.height = (difference_height * (1/3)) + 'px'
+    // workout_container[0].style.height = (difference_height * (1/3)) + 'px'
+    // pr_container[0].style.height = (difference_height * (1/3)) + 'px'
+    //
+    // let gutter_height = workout_container[0].offsetTop - (achievement_container[0].offsetTop + achievement_container[0].clientHeight)
+    //
+    // achievement_container[0].style.height = ((difference_height * (1/3))-gutter_height) + 'px'
+    // workout_container[0].style.height = ((difference_height * (1/3))-gutter_height) + 'px'
+    // pr_container[0].style.height = ((difference_height * (1/3))-gutter_height) + 'px'
+
+
+    // render the card wrappers in each achievement, workout, and pr containers
+    // let generate_achievement_card_container = () => {
+    //   let achievement_card_container = document.createElement('div')
+    //   achievement_card_container.style.height = achievement_container[0].style.height
+    //   achievement_card_container.style.className = 'card-wrapper'
+    //   // achievement_card_container.style.width = achievement_container[0].clientWidth/4 + 'px'
+    //   // console.log(achievement_card_container.style.width)
+    //   // achievement_card_container.style.display = 'inline-block'
+    //
+    //   achievement_card_container.style.backgroundColor = 'white'
+    //   achievement_card_container.style.border = '1px solid black'
+    //   return achievement_card_container
+    // }
+    // let acc1 = generate_achievement_card_container()
+    // , acc2 = generate_achievement_card_container()
+    // , acc3 = generate_achievement_card_container()
+    // , acc4 = generate_achievement_card_container()
+    // , acc5 = generate_achievement_card_container()
+    //
+    // acc1.style.width = '500px'
+    // acc2.style.width = '500px'
+    // acc3.style.width = '500px'
+    // acc4.style.width = '500px'
+    // achievement_container[0].appendChild(acc1)
+    // achievement_container[0].appendChild(acc2)
+    // achievement_container[0].appendChild(acc3)
+    // achievement_container[0].appendChild(acc4)
+
 
   </script>
 

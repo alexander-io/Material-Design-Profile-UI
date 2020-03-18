@@ -14,7 +14,6 @@ app.get('/material-components-web.min.js', (req, res) => {
   res.sendFile(__dirname + '/node_modules/material-components-web/dist/material-components-web.min.js')
 })
 
-
 app.listen(8080, () => {
   console.log('listening on ' + port)
 })
