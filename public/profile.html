@@ -10,12 +10,14 @@
       .mdc-layout-grid {
         padding-bottom: 0px;
       }
+
       .profile-photo-container {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
       }
+
       .profile-photo-wrapper {
         width: 50%;
         border-radius: 50%;
@@ -125,9 +127,9 @@
         width:80%;
       }
 
-      .pr-container {
+      /* .pr-container {
         background-color: #212121;
-      }
+      } */
 
       .mdc-card.workout-card {
         display:flex;
@@ -146,7 +148,32 @@
         width:44%;color:#212121;
       }
 
+      .mdc-card.mdc-card-pr-container {
+        flex-direction:column;
+      }
+
+      .mdc-card__primary-action.mdc-card__primary-action-pr-container {
+        height:50%;
+      }
+
+      .mdc-card__secondary-action.mdc-card__secondary-action-pr-container {
+        height:50%;width:100%;background-color:#313131;border-radius:5px;margin:12px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+
+      .mdc-list-item__primary-text.pr-list-item-primary-text {
+        color:white;padding-left:24px;
+      }
+
+      .material-icons.pr-list-material-icons {
+        display: flex;
+        align-items: center;
+        color: white;
+      }
     </style>
+
 
     <title></title>
   </head>
@@ -154,8 +181,6 @@
 
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
-
-
         <div class="mdc-layout-grid__cell--span-4 profile-photo-container">
           <div class="profile-photo-wrapper mdc-elevation--z8">
             <!-- <img class="profile-photo" src="https://wallpaperaccess.com/full/170249.jpg" alt=""> --> <!-- this is a landscape photo -->
@@ -174,12 +199,10 @@
           </div> <!-- end xp container -->
         </div> <!-- end cell -->
 
-        <div class="mdc-layout-grid__cell--span-4"></div>
-
-        <div class="mdc-layout-grid__cell--span-4"></div>
-
-
-      </div>
+        <div class="mdc-layout-grid__cell--span-8">
+          <!-- TODO : insert name, bio, level, xp data -->
+        </div>
+      </div> <!-- end mdc-layout-grid__inner -->
 
 
       <div class="scrolling-wrapper-flexbox achievement-container">
@@ -190,15 +213,21 @@
       </div> <!-- end workout horizontal scroll container-->
 
       <div class="scrolling-wrapper-flexbox pr-container">
-        <div class="card"><h2>PR</h2></div>
-        <div class="card"><h2>PR</h2></div>
-        <div class="card"><h2>PR</h2></div>
-        <div class="card"><h2>PR</h2></div>
-        <div class="card"><h2>PR</h2></div>
-        <div class="card"><h2>PR</h2></div>
-        <div class="card"><h2>PR</h2></div>
-        <div class="card"><h2>PR</h2></div>
-        <div class="card"><h2>PR</h2></div>
+
+        <div class="card">
+          <div class="mdc-card mdc-card-pr-container" >
+            <div class="mdc-card__primary-action mdc-card__primary-action-pr-container">
+              <span class="mdc-list-item__text workout-list-item-text">
+                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
+              </span>
+            </div>
+            <div class="mdc-card__secondary-action mdc-card__secondary-action-pr-container">
+              <span class="mdc-list-item__primary-text pr-list-item-primary-text">Athlete Score</span>
+              <i class="material-icons pr-list-material-icons">directions_run</i>
+            </div>
+          </div>
+        </div>
+
       </div> <!-- end pr horizontal scroll container-->
 
 
@@ -208,15 +237,14 @@
 
   <script type="text/javascript">
     let profile_photo_wrapper = document.getElementsByClassName('profile-photo-wrapper')
-    let profile_photo_wrapper_width = profile_photo_wrapper[0].clientWidth
-    // console.log(profile_photo_wrapper[0].clientWidth)
+    , profile_photo_wrapper_width = profile_photo_wrapper[0].clientWidth
     profile_photo_wrapper[0].style.height = profile_photo_wrapper_width + 'px'
 
 
     // adjust profile photo height/width so to fit image within circular div
     let profile_photo = document.getElementsByClassName('profile-photo')
-    let profile_photo_width = profile_photo[0].clientWidth
-    let profile_photo_height =  profile_photo[0].clientHeight
+    , profile_photo_width = profile_photo[0].clientWidth
+    , profile_photo_height =  profile_photo[0].clientHeight
 
     let adjust_profile_img_size = (width, height, img_element) => {
       if (width > height) {
@@ -252,14 +280,12 @@
             <div class="mdc-card__media" >
               <img src="crown.png" alt="">
             </div>
-
             <div class="mdc-card__secondary-action">
               <div class="mdc-card__secondary-action-top">
                 <span class="mdc-list-item__text">
                   <span class="mdc-list-item__primary-text">Achievement Title</span>
                   <span class="mdc-list-item__secondary-text">Sub-Title</span>
                 </span>
-
               </div>
               <hr class="mdc-list-divider">
               <div class="mdc-card__secondary-action-bottom">
@@ -310,11 +336,37 @@
       root.appendChild(htmlObject)
     }
 
+    let generate_pr_card = (pr_data) => {
+      let pr_card_builder = `
+        <div class="mdc-card mdc-card-pr-container" >
+          <div class="mdc-card__primary-action mdc-card__primary-action-pr-container">
+            <span class="mdc-list-item__text workout-list-item-text">
+              <span class="mdc-list-item__primary-text workout-list-item-primary-text">PR Title</span>
+            </span>
+          </div>
+          <div class="mdc-card__secondary-action mdc-card__secondary-action-pr-container">
+            <span class="mdc-list-item__primary-text pr-list-item-primary-text">Athlete Score</span>
+            <i class="material-icons pr-list-material-icons">directions_run</i>
+          </div>
+        </div>
+        `
+
+      var htmlObject = document.createElement('div');
+      htmlObject.className = 'card'
+      htmlObject.innerHTML = pr_card_builder
+
+      let root = document.getElementsByClassName('pr-container')[0]
+      root.appendChild(htmlObject)
+    }
+
+
+
     // generate temporary cards
     let number_of_temp_cards = 10
     for (let i = 0; i < number_of_temp_cards; i++) {
       generate_achievement_card()
       generate_workout_card()
+      generate_pr_card()
     }
 
 
@@ -378,6 +430,19 @@
           }
         }
       },15)
+
+      let pc_int = setInterval(() => {
+        pc.scrollLeft+=1 // scroll to the left by 1 additional pixel
+        if (pc.scrollLeft !== 0) { // as long as the scroll isnt at 0...
+          if (pc.scrollLeft % (pc.children[0].clientWidth) == 0) { // if we've reached the end of a card...
+            // then clone the head of the list, remove the head and append the clone onto the end
+            let clone = pc.children[0].cloneNode(true)
+            pc.children[0].remove()
+            pc.scrollLeft = 0
+            pc.appendChild(clone)
+          }
+        }
+      },12.5)
 
       // TODO : insert pr container animation interval
     }
