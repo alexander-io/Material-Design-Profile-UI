@@ -6,6 +6,147 @@
     <script type="text/javascript" src="/material-components-web.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <style media="screen">
+      .mdc-layout-grid {
+        padding-bottom: 0px;
+      }
+      .profile-photo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .profile-photo-wrapper {
+        width: 50%;
+        border-radius: 50%;
+        background-color: #212121;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .profile-photo {
+        flex-shrink: 0;
+      }
+
+      .xp-container {
+        z-index: 1;
+        height:50px;
+        width:100%;
+        display: flex;
+        flex-direction: column-reverse;
+        padding-bottom:24px;
+      }
+      .xp-bar {
+        background-color: white;
+        height:35%;
+        border-radius: 5px;
+        border: 4px solid black;
+      }
+      .xp {
+          height:100%;
+          width:75%;
+          background-color: lime;
+      }
+
+      .scrolling-wrapper-flexbox {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        align-items: center;
+        /* scrollbar-width: none;  /* ALERT, this necessary for removing scroll bar in firefox */
+      }
+
+      ::-webkit-scrollbar {
+          width: 0px;  /* Remove scrollbar space */
+          background: transparent;  /* Optional: just make scrollbar invisible */
+      }
+
+      .card {
+        color: white;
+        flex: 0 0 auto;
+        width:300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 12px;
+        padding-right: 12px;
+        height:95%;
+      }
+
+      .mdc-card {
+        height:100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+
+      .mdc-card__primary-action {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+      }
+      .mdc-card__media {
+        width:50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .mdc-card__media > img {
+        max-height: 100%;
+      }
+
+      .mdc-card__secondary-action {
+        width: 50%;
+        color: #212121;
+      }
+
+      .mdc-card__secondary-action {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .mdc-card__secondary-action-top {
+        display: flex;
+        flex-direction: column;
+        height:70%;
+      }
+
+      .mdc-card__secondary-action-bottom {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 30%;
+        width:80%;
+      }
+
+      .pr-container {
+        background-color: #212121;
+      }
+
+      .mdc-card.workout-card {
+        display:flex;
+        flex-direction:column;
+      }
+      .mdc-list-item__text.workout-list-item-text {
+        margin-left:24px; width:100%;
+      }
+      .mdc-list-item__primary-text.workout-list-item-primary-text {
+        color: #212121;
+      }
+      .mdc-card__button-container {
+        display:flex;justify-content:space-evenly;padding-bottom:12px;padding-top:12px;
+      }
+      .mdc-button.mdc-button--outlined {
+        width:44%;color:#212121;
+      }
+
+    </style>
 
     <title></title>
   </head>
@@ -42,341 +183,12 @@
 
 
       <div class="scrolling-wrapper-flexbox achievement-container">
-
-        <div class="card">
-          <div class="mdc-card">
-            <div class="mdc-card__primary-action">
-              <div class="mdc-card__media" >
-                <img src="crown.png" alt="">
-              </div>
-
-              <div class="mdc-card__secondary-action">
-                <div class="mdc-card__secondary-action-top">
-                  <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Achievement Title</span>
-                    <span class="mdc-list-item__secondary-text">Sub-Title</span>
-                  </span>
-
-                </div>
-                <hr class="mdc-list-divider">
-                <div class="mdc-card__secondary-action-bottom">
-                   <i class="material-icons">directions_run</i>
-                   <i class="material-icons">fitness_center</i>
-                   <i class="material-icons">rowing</i>
-                </div>
-              </div>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-        <div class="card">
-          <div class="mdc-card">
-            <div class="mdc-card__primary-action">
-              <div class="mdc-card__media" >
-                <img src="crown.png" alt="">
-              </div>
-
-              <div class="mdc-card__secondary-action">
-                <div class="mdc-card__secondary-action-top">
-                  <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Achievement Title</span>
-                    <span class="mdc-list-item__secondary-text">Sub-Title</span>
-                  </span>
-
-                </div>
-                <hr class="mdc-list-divider">
-                <div class="mdc-card__secondary-action-bottom">
-                   <i class="material-icons">directions_run</i>
-                   <i class="material-icons">fitness_center</i>
-                   <i class="material-icons">rowing</i>
-                </div>
-              </div>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-        <div class="card">
-          <div class="mdc-card">
-            <div class="mdc-card__primary-action">
-              <div class="mdc-card__media" >
-                <img src="crown.png" alt="">
-              </div>
-
-              <div class="mdc-card__secondary-action">
-                <div class="mdc-card__secondary-action-top">
-                  <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Achievement Title</span>
-                    <span class="mdc-list-item__secondary-text">Sub-Title</span>
-                  </span>
-
-                </div>
-                <hr class="mdc-list-divider">
-                <div class="mdc-card__secondary-action-bottom">
-                   <i class="material-icons">directions_run</i>
-                   <i class="material-icons">fitness_center</i>
-                   <i class="material-icons">rowing</i>
-                </div>
-              </div>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-        <div class="card">
-          <div class="mdc-card">
-            <div class="mdc-card__primary-action">
-              <div class="mdc-card__media" >
-                <img src="crown.png" alt="">
-              </div>
-
-              <div class="mdc-card__secondary-action">
-                <div class="mdc-card__secondary-action-top">
-                  <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Achievement Title</span>
-                    <span class="mdc-list-item__secondary-text">Sub-Title</span>
-                  </span>
-
-                </div>
-                <hr class="mdc-list-divider">
-                <div class="mdc-card__secondary-action-bottom">
-                   <i class="material-icons">directions_run</i>
-                   <i class="material-icons">fitness_center</i>
-                   <i class="material-icons">rowing</i>
-                </div>
-              </div>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-        <div class="card">
-          <div class="mdc-card">
-            <div class="mdc-card__primary-action">
-              <div class="mdc-card__media" >
-                <img src="crown.png" alt="">
-              </div>
-
-              <div class="mdc-card__secondary-action">
-                <div class="mdc-card__secondary-action-top">
-                  <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Achievement Title</span>
-                    <span class="mdc-list-item__secondary-text">Sub-Title</span>
-                  </span>
-
-                </div>
-                <hr class="mdc-list-divider">
-                <div class="mdc-card__secondary-action-bottom">
-                   <i class="material-icons">directions_run</i>
-                   <i class="material-icons">fitness_center</i>
-                   <i class="material-icons">rowing</i>
-                </div>
-              </div>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-        <div class="card">
-          <div class="mdc-card">
-            <div class="mdc-card__primary-action">
-              <div class="mdc-card__media" >
-                <img src="crown.png" alt="">
-              </div>
-
-              <div class="mdc-card__secondary-action">
-                <div class="mdc-card__secondary-action-top">
-                  <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Achievement Title</span>
-                    <span class="mdc-list-item__secondary-text">Sub-Title</span>
-                  </span>
-
-                </div>
-                <hr class="mdc-list-divider">
-                <div class="mdc-card__secondary-action-bottom">
-                   <i class="material-icons">directions_run</i>
-                   <i class="material-icons">fitness_center</i>
-                   <i class="material-icons">rowing</i>
-                </div>
-              </div>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-        <div class="card">
-          <div class="mdc-card">
-            <div class="mdc-card__primary-action">
-              <div class="mdc-card__media" >
-                <img src="crown.png" alt="">
-              </div>
-
-              <div class="mdc-card__secondary-action">
-                <div class="mdc-card__secondary-action-top">
-                  <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Achievement Title</span>
-                    <span class="mdc-list-item__secondary-text">Sub-Title</span>
-                  </span>
-
-                </div>
-                <hr class="mdc-list-divider">
-                <div class="mdc-card__secondary-action-bottom">
-                   <i class="material-icons">directions_run</i>
-                   <i class="material-icons">fitness_center</i>
-                   <i class="material-icons">rowing</i>
-                </div>
-              </div>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-        <div class="card">
-          <div class="mdc-card">
-            <div class="mdc-card__primary-action">
-              <div class="mdc-card__media" >
-                <img src="crown.png" alt="">
-              </div>
-
-              <div class="mdc-card__secondary-action">
-                <div class="mdc-card__secondary-action-top">
-                  <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Achievement Title</span>
-                    <span class="mdc-list-item__secondary-text">Sub-Title</span>
-                  </span>
-
-                </div>
-                <hr class="mdc-list-divider">
-                <div class="mdc-card__secondary-action-bottom">
-                   <i class="material-icons">directions_run</i>
-                   <i class="material-icons">fitness_center</i>
-                   <i class="material-icons">rowing</i>
-                </div>
-              </div>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-
       </div> <!-- end achievement horizontal scroll container-->
+
       <div class="scrolling-wrapper-flexbox workout-container">
 
-        <div class="card">
-          <div class="mdc-card workout-card">
-            <div class="mdc-card__primary-action">
-              <span class="mdc-list-item__text workout-list-item-text">
-                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
-                <span class="mdc-list-item__secondary-text">Workout Description</span>
-                <span class="mdc-list-item__secondary-text">Athlete Score</span>
-              </span>
-            </div>
-            <div class="mdc-card__button-container">
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">View Workout</span>
-              </button>
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">Leaderboard</span>
-              </button>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
+      </div> <!-- end workout horizontal scroll container-->
 
-        <div class="card">
-          <div class="mdc-card workout-card">
-            <div class="mdc-card__primary-action">
-              <span class="mdc-list-item__text workout-list-item-text">
-                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
-                <span class="mdc-list-item__secondary-text">Workout Description</span>
-                <span class="mdc-list-item__secondary-text">Athlete Score</span>
-              </span>
-            </div>
-            <div class="mdc-card__button-container">
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">View Workout</span>
-              </button>
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">Leaderboard</span>
-              </button>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-        <div class="card">
-          <div class="mdc-card workout-card">
-            <div class="mdc-card__primary-action">
-              <span class="mdc-list-item__text workout-list-item-text">
-                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
-                <span class="mdc-list-item__secondary-text">Workout Description</span>
-                <span class="mdc-list-item__secondary-text">Athlete Score</span>
-              </span>
-            </div>
-            <div class="mdc-card__button-container">
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">View Workout</span>
-              </button>
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">Leaderboard</span>
-              </button>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-        <div class="card">
-          <div class="mdc-card workout-card">
-            <div class="mdc-card__primary-action">
-              <span class="mdc-list-item__text workout-list-item-text">
-                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
-                <span class="mdc-list-item__secondary-text">Workout Description</span>
-                <span class="mdc-list-item__secondary-text">Athlete Score</span>
-              </span>
-            </div>
-            <div class="mdc-card__button-container">
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">View Workout</span>
-              </button>
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">Leaderboard</span>
-              </button>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-        <div class="card">
-          <div class="mdc-card workout-card">
-            <div class="mdc-card__primary-action">
-              <span class="mdc-list-item__text workout-list-item-text">
-                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
-                <span class="mdc-list-item__secondary-text">Workout Description</span>
-                <span class="mdc-list-item__secondary-text">Athlete Score</span>
-              </span>
-            </div>
-            <div class="mdc-card__button-container">
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">View Workout</span>
-              </button>
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">Leaderboard</span>
-              </button>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-        <div class="card">
-          <div class="mdc-card workout-card">
-            <div class="mdc-card__primary-action">
-              <span class="mdc-list-item__text workout-list-item-text">
-                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
-                <span class="mdc-list-item__secondary-text">Workout Description</span>
-                <span class="mdc-list-item__secondary-text">Athlete Score</span>
-              </span>
-            </div>
-            <div class="mdc-card__button-container">
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">View Workout</span>
-              </button>
-              <button class="mdc-button mdc-button--outlined">
-                <span class="mdc-button__label">Leaderboard</span>
-              </button>
-            </div>
-          </div> <!-- end mdc card -->
-        </div> <!-- end card -->
-
-
-      </div>
       <div class="scrolling-wrapper-flexbox pr-container">
         <div class="card"><h2>PR</h2></div>
         <div class="card"><h2>PR</h2></div>
@@ -387,164 +199,13 @@
         <div class="card"><h2>PR</h2></div>
         <div class="card"><h2>PR</h2></div>
         <div class="card"><h2>PR</h2></div>
-      </div>
+      </div> <!-- end pr horizontal scroll container-->
 
 
-    </div>
-
-
-
+    </div> <!-- end mdc-layout-grid -->
   </body>
 
-  <style media="screen">
-    .mdc-layout-grid {
-      padding-bottom: 0px;
-    }
-    .profile-photo-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-    .profile-photo-wrapper {
-      width: 50%;
-      border-radius: 50%;
-      background-color: #212121;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
 
-    .profile-photo {
-      flex-shrink: 0;
-    }
-
-    .xp-container {
-      z-index: 1;
-      height:50px;
-      width:100%;
-      display: flex;
-      flex-direction: column-reverse;
-      padding-bottom:24px;
-    }
-    .xp-bar {
-      background-color: white;
-      height:35%;
-      border-radius: 5px;
-      border: 4px solid black;
-    }
-    .xp {
-        height:100%;
-        width:75%;
-        background-color: lime;
-    }
-
-    .scrolling-wrapper-flexbox {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      /* justify-content: center; */
-      align-items: center;
-      /* display: none; */
-      /* overflow: hidden; */
-      /* scrollbar-width: none;  /* ALERT, this necessary for removing scroll bar in firefox */
-    }
-    ::-webkit-scrollbar {
-        width: 0px;  /* Remove scrollbar space */
-        background: transparent;  /* Optional: just make scrollbar invisible */
-    }
-
-
-    .card {
-      color: white;
-      flex: 0 0 auto;
-      width:300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      /* margin-right: 12px;
-      margin-left: 12px; */
-      padding-left: 12px;
-      padding-right: 12px;
-      height:95%;
-    }
-
-    .mdc-card {
-      height:100%;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-    }
-
-    .mdc-card__primary-action {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      height: 100%;
-    }
-    .mdc-card__media {
-      width:50%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .mdc-card__media > img {
-      max-height: 100%;
-    }
-
-    .mdc-card__secondary-action {
-      width: 50%;
-      color: #212121;
-    }
-
-    .mdc-card__secondary-action {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .mdc-card__secondary-action-top {
-      display: flex;
-      flex-direction: column;
-      /* align-items: center; */
-      height:70%;
-    }
-
-    .mdc-card__secondary-action-bottom {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-
-      height: 30%;
-      width:80%;
-    }
-
-    .pr-container {
-      background-color: #212121;
-    }
-
-
-    .mdc-card.workout-card {
-      display:flex;
-      flex-direction:column;
-    }
-    .mdc-list-item__text.workout-list-item-text {
-      margin-left:24px; width:100%;
-    }
-    .mdc-list-item__primary-text.workout-list-item-primary-text {
-      color: #212121;
-    }
-    .mdc-card__button-container {
-      display:flex;justify-content:space-evenly;padding-bottom:12px;padding-top:12px;
-    }
-    .mdc-button.mdc-button--outlined {
-      width:44%;color:#212121;
-    }
-
-  </style>
   <script type="text/javascript">
     let profile_photo_wrapper = document.getElementsByClassName('profile-photo-wrapper')
     let profile_photo_wrapper_width = profile_photo_wrapper[0].clientWidth
@@ -583,6 +244,80 @@
 
 
 
+
+    let generate_achievement_card = (achievement_data) => {
+      let achievement_card_builder = `
+        <div class="mdc-card">
+          <div class="mdc-card__primary-action">
+            <div class="mdc-card__media" >
+              <img src="crown.png" alt="">
+            </div>
+
+            <div class="mdc-card__secondary-action">
+              <div class="mdc-card__secondary-action-top">
+                <span class="mdc-list-item__text">
+                  <span class="mdc-list-item__primary-text">Achievement Title</span>
+                  <span class="mdc-list-item__secondary-text">Sub-Title</span>
+                </span>
+
+              </div>
+              <hr class="mdc-list-divider">
+              <div class="mdc-card__secondary-action-bottom">
+                 <i class="material-icons">directions_run</i>
+                 <i class="material-icons">fitness_center</i>
+                 <i class="material-icons">rowing</i>
+              </div>
+            </div>
+          </div>
+        </div> <!-- end mdc card -->`
+
+      var htmlObject = document.createElement('div');
+      htmlObject.className = 'card'
+      htmlObject.innerHTML = achievement_card_builder
+
+      let root = document.getElementsByClassName('achievement-container')[0]
+      root.appendChild(htmlObject)
+    }
+
+
+
+    let generate_workout_card = (workout_data) => {
+      let workout_card_builder = `
+        <div class="mdc-card workout-card">
+          <div class="mdc-card__primary-action">
+            <span class="mdc-list-item__text workout-list-item-text">
+              <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
+              <span class="mdc-list-item__secondary-text">Workout Description</span>
+              <span class="mdc-list-item__secondary-text">Athlete Score</span>
+            </span>
+          </div>
+          <div class="mdc-card__button-container">
+            <button class="mdc-button mdc-button--outlined">
+              <span class="mdc-button__label">View Workout</span>
+            </button>
+            <button class="mdc-button mdc-button--outlined">
+              <span class="mdc-button__label">Leaderboard</span>
+            </button>
+          </div>
+        </div> <!-- end mdc card -->
+        `
+
+      var htmlObject = document.createElement('div');
+      htmlObject.className = 'card'
+      htmlObject.innerHTML = workout_card_builder
+
+      let root = document.getElementsByClassName('workout-container')[0]
+      root.appendChild(htmlObject)
+    }
+
+    // generate temporary cards
+    let number_of_temp_cards = 10
+    for (let i = 0; i < number_of_temp_cards; i++) {
+      generate_achievement_card()
+      generate_workout_card()
+    }
+
+
     // we want the height of the achievement_container, workout_container, and pr_container
     // ... to be 1/3 of the remaining window height after taking the difference of the total
     // ... window height and the height of the profile-photo-container...
@@ -595,12 +330,13 @@
     , scrolling_wrapper_flexbox = document.getElementsByClassName('scrolling-wrapper-flexbox')
     let difference_height = window.innerHeight - (profile_photo_container[0].clientHeight + xp_container[0].clientHeight)
 
+    // set height and margin of containers
     for (let i = 0; i < scrolling_wrapper_flexbox.length; i++) {
       scrolling_wrapper_flexbox[i].style.height = ((difference_height * (1/3))-12) + 'px'
       scrolling_wrapper_flexbox[i].style.marginBottom = '24px'
     }
 
-
+    // set card width
     let cards = document.getElementsByClassName('card')
     for (card in cards) {
       if (cards[card].style) {
@@ -609,87 +345,12 @@
     }
 
 
-
-    //
-    // achievement_container[0].style.height = (difference_height * (1/3)) + 'px'
-    // workout_container[0].style.height = (difference_height * (1/3)) + 'px'
-    // pr_container[0].style.height = (difference_height * (1/3)) + 'px'
-    //
-    // let gutter_height = workout_container[0].offsetTop - (achievement_container[0].offsetTop + achievement_container[0].clientHeight)
-    //
-    // achievement_container[0].style.height = ((difference_height * (1/3))-gutter_height) + 'px'
-    // workout_container[0].style.height = ((difference_height * (1/3))-gutter_height) + 'px'
-    // pr_container[0].style.height = ((difference_height * (1/3))-gutter_height) + 'px'
-
-
-    // render the card wrappers in each achievement, workout, and pr containers
-    // let generate_achievement_card_container = () => {
-    //   let achievement_card_container = document.createElement('div')
-    //   achievement_card_container.style.height = achievement_container[0].style.height
-    //   achievement_card_container.style.className = 'card-wrapper'
-    //   // achievement_card_container.style.width = achievement_container[0].clientWidth/4 + 'px'
-    //   // console.log(achievement_card_container.style.width)
-    //   // achievement_card_container.style.display = 'inline-block'
-    //
-    //   achievement_card_container.style.backgroundColor = 'white'
-    //   achievement_card_container.style.border = '1px solid black'
-    //   return achievement_card_container
-    // }
-    // let acc1 = generate_achievement_card_container()
-    // , acc2 = generate_achievement_card_container()
-    // , acc3 = generate_achievement_card_container()
-    // , acc4 = generate_achievement_card_container()
-    // , acc5 = generate_achievement_card_container()
-    //
-    // acc1.style.width = '500px'
-    // acc2.style.width = '500px'
-    // acc3.style.width = '500px'
-    // acc4.style.width = '500px'
-    // achievement_container[0].appendChild(acc1)
-    // achievement_container[0].appendChild(acc2)
-    // achievement_container[0].appendChild(acc3)
-    // achievement_container[0].appendChild(acc4)
-
-
-
-    // scroll back n forth
-    // let ac = document.getElementsByClassName('achievement-container')[0]
-    // ac.scrollLeft = ac.scrollWidth
-    // let scroll_left_max = ac.scrollLeft
-    // ac.scrollLeft = 0
-    //
-    //
-    //
-    // let start_right = () => {
-    //   let int = setInterval(() => {
-    //     ac.scrollLeft-=1;
-    //     if (ac.scrollLeft<=0) {
-    //       clearInterval(int)
-    //       start_left()
-    //     }
-    //   },10)
-    // }
-    //
-    // let start_left = () => {
-    //   let int = setInterval(() => {
-    //     ac.scrollLeft+=1;
-    //     if (ac.scrollLeft>=scroll_left_max) {
-    //       clearInterval(int)
-    //       start_right()
-    //     }
-    //   },10)
-    // }
-    //
-    //
-    // start_left()
-
-
     // scroll animation for achievements container
-    let start_left = () => {
+    let start_scroll_animation = () => {
       let ac = document.getElementsByClassName('achievement-container')[0]
       , wc = document.getElementsByClassName('workout-container')[0]
+      , pc = document.getElementsByClassName('pr-container')[0]
 
-      console.log(wc)
 
       let ac_int = setInterval(() => {
         ac.scrollLeft+=1 // scroll to the left by 1 additional pixel
@@ -718,11 +379,10 @@
         }
       },15)
 
-
-
-
+      // TODO : insert pr container animation interval
     }
-    start_left()
+
+    start_scroll_animation()
 
 
   </script>
