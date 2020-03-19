@@ -264,7 +264,6 @@
                 <span class="mdc-list-item__secondary-text">Athlete Score</span>
               </span>
             </div>
-            <hr class="mdc-list-divider">
             <div class="mdc-card__button-container">
               <button class="mdc-button mdc-button--outlined">
                 <span class="mdc-button__label">View Workout</span>
@@ -276,14 +275,105 @@
           </div> <!-- end mdc card -->
         </div> <!-- end card -->
 
+        <div class="card">
+          <div class="mdc-card workout-card">
+            <div class="mdc-card__primary-action">
+              <span class="mdc-list-item__text workout-list-item-text">
+                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
+                <span class="mdc-list-item__secondary-text">Workout Description</span>
+                <span class="mdc-list-item__secondary-text">Athlete Score</span>
+              </span>
+            </div>
+            <div class="mdc-card__button-container">
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">View Workout</span>
+              </button>
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">Leaderboard</span>
+              </button>
+            </div>
+          </div> <!-- end mdc card -->
+        </div> <!-- end card -->
 
-        <style media="screen">
+        <div class="card">
+          <div class="mdc-card workout-card">
+            <div class="mdc-card__primary-action">
+              <span class="mdc-list-item__text workout-list-item-text">
+                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
+                <span class="mdc-list-item__secondary-text">Workout Description</span>
+                <span class="mdc-list-item__secondary-text">Athlete Score</span>
+              </span>
+            </div>
+            <div class="mdc-card__button-container">
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">View Workout</span>
+              </button>
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">Leaderboard</span>
+              </button>
+            </div>
+          </div> <!-- end mdc card -->
+        </div> <!-- end card -->
 
-        </style>
+        <div class="card">
+          <div class="mdc-card workout-card">
+            <div class="mdc-card__primary-action">
+              <span class="mdc-list-item__text workout-list-item-text">
+                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
+                <span class="mdc-list-item__secondary-text">Workout Description</span>
+                <span class="mdc-list-item__secondary-text">Athlete Score</span>
+              </span>
+            </div>
+            <div class="mdc-card__button-container">
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">View Workout</span>
+              </button>
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">Leaderboard</span>
+              </button>
+            </div>
+          </div> <!-- end mdc card -->
+        </div> <!-- end card -->
 
+        <div class="card">
+          <div class="mdc-card workout-card">
+            <div class="mdc-card__primary-action">
+              <span class="mdc-list-item__text workout-list-item-text">
+                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
+                <span class="mdc-list-item__secondary-text">Workout Description</span>
+                <span class="mdc-list-item__secondary-text">Athlete Score</span>
+              </span>
+            </div>
+            <div class="mdc-card__button-container">
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">View Workout</span>
+              </button>
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">Leaderboard</span>
+              </button>
+            </div>
+          </div> <!-- end mdc card -->
+        </div> <!-- end card -->
 
-
-
+        <div class="card">
+          <div class="mdc-card workout-card">
+            <div class="mdc-card__primary-action">
+              <span class="mdc-list-item__text workout-list-item-text">
+                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
+                <span class="mdc-list-item__secondary-text">Workout Description</span>
+                <span class="mdc-list-item__secondary-text">Athlete Score</span>
+              </span>
+            </div>
+            <div class="mdc-card__button-container">
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">View Workout</span>
+              </button>
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">Leaderboard</span>
+              </button>
+            </div>
+          </div> <!-- end mdc card -->
+        </div> <!-- end card -->
 
 
       </div>
@@ -597,7 +687,11 @@
     // scroll animation for achievements container
     let start_left = () => {
       let ac = document.getElementsByClassName('achievement-container')[0]
-      let int = setInterval(() => {
+      , wc = document.getElementsByClassName('workout-container')[0]
+
+      console.log(wc)
+
+      let ac_int = setInterval(() => {
         ac.scrollLeft+=1 // scroll to the left by 1 additional pixel
 
         if (ac.scrollLeft !== 0) { // as long as the scroll isnt at 0...
@@ -609,7 +703,24 @@
             ac.appendChild(clone)
           }
         }
+      },20)
+
+      let wc_int = setInterval(() => {
+        wc.scrollLeft+=1 // scroll to the left by 1 additional pixel
+        if (wc.scrollLeft !== 0) { // as long as the scroll isnt at 0...
+          if (wc.scrollLeft % (wc.children[0].clientWidth) == 0) { // if we've reached the end of a card...
+            // then clone the head of the list, remove the head and append the clone onto the end
+            let clone = wc.children[0].cloneNode(true)
+            wc.children[0].remove()
+            wc.scrollLeft = 0
+            wc.appendChild(clone)
+          }
+        }
       },15)
+
+
+
+
     }
     start_left()
 
