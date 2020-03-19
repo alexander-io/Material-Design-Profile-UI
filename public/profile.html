@@ -5,8 +5,12 @@
     <link rel="stylesheet" href="/material-components-web.css">
     <script type="text/javascript" src="/material-components-web.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" rel="stylesheet">
     <style media="screen">
+      body {
+        font-family: 'Baloo 2', cursive;
+      }
+
       .mdc-layout-grid {
         padding-bottom: 0px;
       }
@@ -157,7 +161,8 @@
       }
 
       .mdc-card__secondary-action.mdc-card__secondary-action-pr-container {
-        height:50%;width:100%;background-color:#313131;border-radius:5px;margin:12px;
+        height:100%;width:100%;background-color:#313131;border-radius:5px;
+        /* margin-left:12px; */
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -171,6 +176,16 @@
         display: flex;
         align-items: center;
         color: white;
+      }
+      .mdc-card__secondary-action-wrapper {
+        padding-left:12px;
+        padding-right:12px;
+        padding-bottom: 12px;
+        height:50%;
+      }
+
+      .athlete-score-pr-card {
+        color:white;
       }
     </style>
 
@@ -214,19 +229,6 @@
 
       <div class="scrolling-wrapper-flexbox pr-container">
 
-        <div class="card">
-          <div class="mdc-card mdc-card-pr-container" >
-            <div class="mdc-card__primary-action mdc-card__primary-action-pr-container">
-              <span class="mdc-list-item__text workout-list-item-text">
-                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
-              </span>
-            </div>
-            <div class="mdc-card__secondary-action mdc-card__secondary-action-pr-container">
-              <span class="mdc-list-item__primary-text pr-list-item-primary-text">Athlete Score</span>
-              <i class="material-icons pr-list-material-icons">directions_run</i>
-            </div>
-          </div>
-        </div>
 
       </div> <!-- end pr horizontal scroll container-->
 
@@ -344,9 +346,12 @@
               <span class="mdc-list-item__primary-text workout-list-item-primary-text">PR Title</span>
             </span>
           </div>
-          <div class="mdc-card__secondary-action mdc-card__secondary-action-pr-container">
-            <span class="mdc-list-item__primary-text pr-list-item-primary-text">Athlete Score</span>
-            <i class="material-icons pr-list-material-icons">directions_run</i>
+
+          <div class="mdc-card__secondary-action-wrapper">
+            <div class="mdc-card__secondary-action mdc-card__secondary-action-pr-container">
+              <h4 class="athlete-score-pr-card">Athlete Score</h4>
+              <i class="material-icons pr-list-material-icons">directions_run</i>
+            </div>
           </div>
         </div>
         `
