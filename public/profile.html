@@ -254,15 +254,38 @@
 
       </div> <!-- end achievement horizontal scroll container-->
       <div class="scrolling-wrapper-flexbox workout-container">
-        <div class="card"><h2>Workout</h2></div>
-        <div class="card"><h2>Workout</h2></div>
-        <div class="card"><h2>Workout</h2></div>
-        <div class="card"><h2>Workout</h2></div>
-        <div class="card"><h2>Workout</h2></div>
-        <div class="card"><h2>Workout</h2></div>
-        <div class="card"><h2>Workout</h2></div>
-        <div class="card"><h2>Workout</h2></div>
-        <div class="card"><h2>Workout</h2></div>
+
+        <div class="card">
+          <div class="mdc-card workout-card">
+            <div class="mdc-card__primary-action">
+              <span class="mdc-list-item__text workout-list-item-text">
+                <span class="mdc-list-item__primary-text workout-list-item-primary-text">Workout Title</span>
+                <span class="mdc-list-item__secondary-text">Workout Description</span>
+                <span class="mdc-list-item__secondary-text">Athlete Score</span>
+              </span>
+            </div>
+            <hr class="mdc-list-divider">
+            <div class="mdc-card__button-container">
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">View Workout</span>
+              </button>
+              <button class="mdc-button mdc-button--outlined">
+                <span class="mdc-button__label">Leaderboard</span>
+              </button>
+            </div>
+          </div> <!-- end mdc card -->
+        </div> <!-- end card -->
+
+
+        <style media="screen">
+
+        </style>
+
+
+
+
+
+
       </div>
       <div class="scrolling-wrapper-flexbox pr-container">
         <div class="card"><h2>PR</h2></div>
@@ -409,10 +432,27 @@
       width:80%;
     }
 
-    .workout-container, .pr-container {
+    .pr-container {
       background-color: #212121;
     }
 
+
+    .mdc-card.workout-card {
+      display:flex;
+      flex-direction:column;
+    }
+    .mdc-list-item__text.workout-list-item-text {
+      margin-left:24px; width:100%;
+    }
+    .mdc-list-item__primary-text.workout-list-item-primary-text {
+      color: #212121;
+    }
+    .mdc-card__button-container {
+      display:flex;justify-content:space-evenly;padding-bottom:12px;padding-top:12px;
+    }
+    .mdc-button.mdc-button--outlined {
+      width:44%;color:#212121;
+    }
 
   </style>
   <script type="text/javascript">
@@ -428,13 +468,11 @@
     let profile_photo_height =  profile_photo[0].clientHeight
 
     let adjust_profile_img_size = (width, height, img_element) => {
-      console.log(width,height)
       if (width > height) {
         // photo is landscape
         img_element.style.maxHeight = '100%'
       } else if (width < height) {
         // photo is portrait
-        console.log('photo is portrait')
         img_element.style.maxWidth = '100%'
       } else if (width === height) {
         // photo is square
@@ -448,7 +486,6 @@
     }
 
     profile_photo[0].onload = function() {
-      console.log('onload')
       let profile_photo_width = this.width
       let profile_photo_height =  this.height
       adjust_profile_img_size(profile_photo_width, profile_photo_height, profile_photo[0])
@@ -469,7 +506,6 @@
     let difference_height = window.innerHeight - (profile_photo_container[0].clientHeight + xp_container[0].clientHeight)
 
     for (let i = 0; i < scrolling_wrapper_flexbox.length; i++) {
-      // console.log((difference_height * (1/3)) + 'px')
       scrolling_wrapper_flexbox[i].style.height = ((difference_height * (1/3))-12) + 'px'
       scrolling_wrapper_flexbox[i].style.marginBottom = '24px'
     }
@@ -479,7 +515,6 @@
     for (card in cards) {
       if (cards[card].style) {
         cards[card].style.width = scrolling_wrapper_flexbox[0].clientWidth/4 + 'px'
-        // cards[card].className += " mdc-elevation--z8"
       }
     }
 
@@ -558,14 +593,16 @@
     //
     // start_left()
 
-    let ac = document.getElementsByClassName('achievement-container')[0]
-    let start_left = () => {
-      let int = setInterval(() => {
-        ac.scrollLeft+=1
 
-        if (ac.scrollLeft !== 0) {
-          if (ac.scrollLeft % (ac.children[0].clientWidth) == 0) {
-            console.log('now')
+    // scroll animation for achievements container
+    let start_left = () => {
+      let ac = document.getElementsByClassName('achievement-container')[0]
+      let int = setInterval(() => {
+        ac.scrollLeft+=1 // scroll to the left by 1 additional pixel
+
+        if (ac.scrollLeft !== 0) { // as long as the scroll isnt at 0...
+          if (ac.scrollLeft % (ac.children[0].clientWidth) == 0) { // if we've reached the end of a card...
+            // then clone the head of the list, remove the head and append the clone onto the end
             let clone = ac.children[0].cloneNode(true)
             ac.children[0].remove()
             ac.scrollLeft = 0
