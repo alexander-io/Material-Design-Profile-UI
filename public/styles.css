@@ -1,0 +1,183 @@
+body {
+  font-family: 'Baloo 2', cursive;
+}
+
+.mdc-layout-grid {
+  padding-bottom: 0px;
+}
+
+.profile-photo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.xxx {
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.profile-photo-wrapper {
+  width: 50%;
+  border-radius: 50%;
+  background-color: #212121;
+  display: flex;
+  /* align-self: center; */
+  align-items: center;
+  overflow: hidden;
+}
+
+.profile-photo {
+  flex-shrink: 0;
+}
+
+.xp-container {
+  z-index: 1;
+  height:50px;
+  width:100%;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom:24px;
+}
+.xp-bar {
+  background-color: white;
+  height:35%;
+  border-radius: 5px;
+  border: 4px solid black;
+}
+.xp {
+    height:100%;
+    width:75%;
+    background-color: lime;
+}
+
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  align-items: center;
+  /* scrollbar-width: none;  /* ALERT, this necessary for removing scroll bar in firefox */
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.card {
+  color: white;
+  flex: 0 0 auto;
+  width:300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 12px;
+  padding-right: 12px;
+  height:95%;
+}
+
+.mdc-card {
+  height:100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.mdc-card__primary-action {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+.mdc-card__media {
+  width:50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mdc-card__media > img {
+  max-height: 100%;
+}
+
+.mdc-card__secondary-action {
+  width: 50%;
+  color: #212121;
+}
+
+.mdc-card__secondary-action {
+  display: flex;
+  flex-direction: column;
+}
+
+.mdc-card__secondary-action-top {
+  display: flex;
+  flex-direction: column;
+  height:70%;
+}
+
+.mdc-card__secondary-action-bottom {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 30%;
+  width:80%;
+}
+
+.mdc-card.workout-card {
+  display:flex;
+  flex-direction:column;
+}
+.mdc-list-item__text.workout-list-item-text {
+  margin-left:24px; width:100%;
+}
+.mdc-list-item__primary-text.workout-list-item-primary-text {
+  color: #212121;
+}
+.mdc-card__button-container {
+  display:flex;justify-content:space-evenly;padding-bottom:12px;padding-top:12px;
+}
+.mdc-button.mdc-button--outlined {
+  width:44%;color:#212121;
+}
+
+.mdc-card.mdc-card-pr-container {
+  flex-direction:column;
+}
+
+.mdc-card__primary-action.mdc-card__primary-action-pr-container {
+  height:50%;
+}
+
+.mdc-card__secondary-action.mdc-card__secondary-action-pr-container {
+  height:100%;width:100%;background-color:#313131;border-radius:5px;
+  /* margin-left:12px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.mdc-list-item__primary-text.pr-list-item-primary-text {
+  color:white;padding-left:24px;
+}
+
+.material-icons.pr-list-material-icons {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.mdc-card__secondary-action-wrapper {
+  padding-left:12px;
+  padding-right:12px;
+  padding-bottom: 12px;
+  height:50%;
+}
+
+.athlete-score-pr-card {
+  color:white;
+}
