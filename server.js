@@ -6,6 +6,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/profile.html')
 })
 
+app.get('/app.js', (req, res) => {
+  res.sendFile(__dirname + '/public/app.js')
+})
+
 app.get('/material-components-web.css', (req, res) => {
   res.sendFile(__dirname + '/node_modules/material-components-web/dist/material-components-web.css')
 })
