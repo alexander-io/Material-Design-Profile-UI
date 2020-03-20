@@ -22,12 +22,19 @@
         flex-direction: column;
       }
 
+      .xxx {
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+
       .profile-photo-wrapper {
         width: 50%;
         border-radius: 50%;
         background-color: #212121;
         display: flex;
-        justify-content: center;
+        /* align-self: center; */
         align-items: center;
         overflow: hidden;
       }
@@ -197,11 +204,30 @@
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell--span-4 profile-photo-container">
+
+
+          <div class="xxx">
+
+            <div class="level" style="width:25%;display:flex;align-items:flex-end; ">
+              <div class="lvl mdc-elevation--z8" style="border:5px solid #212121;width:100%;display:flex;align-items:center;justify-content:center;border-radius:50%;">
+                <h3 style="color:#f15b29;">lv.</h3><h1>100</h1>
+              </div>
+            </div>
+
+
           <div class="profile-photo-wrapper mdc-elevation--z8">
-            <!-- <img class="profile-photo" src="https://wallpaperaccess.com/full/170249.jpg" alt=""> --> <!-- this is a landscape photo -->
-            <!-- <img class="profile-photo" src="https://images.unsplash.com/photo-1527082395-e939b847da0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt=""> <!-- this is a portrait photo --> -->
             <img class="profile-photo" src="https://scontent-ort2-1.xx.fbcdn.net/v/t31.0-8/13988271_913081295485866_1554549242314700455_o.jpg?_nc_cat=100&_nc_sid=7aed08&_nc_ohc=FuN5wYnMQIAAX-Kuw9u&_nc_ht=scontent-ort2-1.xx&oh=f011b7e75a57c68bfe7ff806df5f1329&oe=5E99656C" alt=""> <!-- this is a portrait photo -->
           </div> <!-- end profile photo wrapper -->
+
+          <div class="choice-achievement-wrapper" style="width:25%;display:flex;align-items:flex-end; ">
+            <div class="choice-achievement mdc-elevation--z8" style="border:5px solid #212121;width:100%;display:flex;align-items:center;justify-content:center;border-radius:50%;">
+              <img class="achiev-img" src="fire.png" alt="">
+
+            </div>
+          </div>
+
+        </div>
+
 
           <!-- xp -->
           <div class="xp-container">
@@ -214,24 +240,25 @@
           </div> <!-- end xp container -->
         </div> <!-- end cell -->
 
-        <div class="mdc-layout-grid__cell--span-8">
+        <div class="mdc-layout-grid__cell--span-8" style="padding-bottom:24px;">
           <!-- TODO : insert name, bio, level, xp data -->
+          <div class="" style="padding:60px 60px 0px 60px;display:flex;flex-direction:column;">
+            <h1 style="margin-bottom:0px;">Name</h1>
+            <h3 style="margin-top:0px;">2020/03/20</h3>
+            <h4 style="width:75%">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </h4>
+          </div>
+
         </div>
       </div> <!-- end mdc-layout-grid__inner -->
-
 
       <div class="scrolling-wrapper-flexbox achievement-container">
       </div> <!-- end achievement horizontal scroll container-->
 
       <div class="scrolling-wrapper-flexbox workout-container">
-
       </div> <!-- end workout horizontal scroll container-->
 
       <div class="scrolling-wrapper-flexbox pr-container">
-
-
       </div> <!-- end pr horizontal scroll container-->
-
 
     </div> <!-- end mdc-layout-grid -->
   </body>
@@ -273,8 +300,6 @@
     }
 
 
-
-
     let generate_achievement_card = (achievement_data) => {
       let achievement_card_builder = `
         <div class="mdc-card">
@@ -306,8 +331,6 @@
       let root = document.getElementsByClassName('achievement-container')[0]
       root.appendChild(htmlObject)
     }
-
-
 
     let generate_workout_card = (workout_data) => {
       let workout_card_builder = `
@@ -364,8 +387,6 @@
       root.appendChild(htmlObject)
     }
 
-
-
     // generate temporary cards
     let number_of_temp_cards = 10
     for (let i = 0; i < number_of_temp_cards; i++) {
@@ -400,6 +421,13 @@
         cards[card].style.width = scrolling_wrapper_flexbox[0].clientWidth/4 + 'px'
       }
     }
+
+
+    let lvl = document.getElementsByClassName('lvl')[0]
+    , choice_achiev = document.getElementsByClassName('choice-achievement')[0]
+
+    lvl.style.height = lvl.clientWidth + 'px'
+    choice_achiev.style.height = lvl.clientWidth + 'px'
 
 
     // scroll animation for achievements container
@@ -448,8 +476,6 @@
           }
         }
       },12.5)
-
-      // TODO : insert pr container animation interval
     }
 
     start_scroll_animation()

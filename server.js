@@ -18,6 +18,10 @@ app.get('/crown.png', (req, res) => {
   res.sendFile(__dirname + '/images/crown.png')
 })
 
+app.get('/fire.png', (req, res) => {
+  res.sendFile(__dirname + '/images/fire.png')
+})
+
 app.listen(8080, () => {
   console.log('listening on ' + port)
 })
