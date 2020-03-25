@@ -181,3 +181,21 @@ body {
 .athlete-score-pr-card {
   color:white;
 }
+
+.lvl {
+  border:5px solid #212121;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+}
+
+html,body {
+  margin: 0px;
+  /* height: 100%; */
+  /* width: 100%; */
+}
+html,body {
+  height:100%;
+}
